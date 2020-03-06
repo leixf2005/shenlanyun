@@ -127,8 +127,13 @@
     <Content Include="Images\weixin.jpg" />
     <Content Include="index.html" />
     <Content Include="js\jquery-1.9.0.min.js" />
+    <Content Include="js\layer.js" />
+    <Content Include="js\md5.js" />
+    <Content Include="js\need\layer.css" />
     <Content Include="js\qrcode.js" />
+    <Content Include="js\scale_fn.js" />
     <Content Include="js\sdk.js" />
+    <Content Include="js\zepto.min.js" />
     <Content Include="layui\css\layui.css" />
     <Content Include="layui\css\layui.mobile.css" />
     <Content Include="layui\css\modules\code.css" />

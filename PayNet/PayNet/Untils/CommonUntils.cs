@@ -197,6 +197,7 @@ namespace PayNet
         {
             List<String> list = pairs.Select(A => String.Format("{0}={1}", A.Key, A.Value)).ToList();
             String result = String.Join("&", list);
+            result += ConfigUtils.key;
             result = MD5Untils.GetMd5(result);
             return result;
         }
@@ -213,6 +214,7 @@ namespace PayNet
         {
             List<String> list = pairs.Select(A => String.Format("{0}={1}", A.Key, A.Value)).ToList();
             String result = String.Join("&", list);
+            result += ConfigUtils.key;
             result = MD5Untils.GetMd5(result);
             Boolean flag = result.ToUpper() == sign.ToUpper();
             return flag;

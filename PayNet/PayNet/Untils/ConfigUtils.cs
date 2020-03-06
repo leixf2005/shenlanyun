@@ -57,6 +57,11 @@ namespace PayNet
         public static String key { get; private set; }
 
         /// <summary>
+        /// 站点名称
+        /// </summary>
+        public static String sitename { get; private set; }
+
+        /// <summary>
         /// 通知商户Url(在网关返回信息时通知商户的地址，该地址不能带任何参数，否则异步通知会不成功)
         /// </summary>
         public static String notifyurl { get; private set; }
@@ -209,6 +214,9 @@ namespace PayNet
                             break;
                         case "key":
                             key = xmlNode.Attributes["value"].Value;
+                            break;
+                        case "sitename":
+                            sitename = xmlNode.Attributes["value"].Value;
                             break;
                         case "payurl":
                             payurl = xmlNode.Attributes["value"].Value;

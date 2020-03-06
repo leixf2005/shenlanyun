@@ -99,7 +99,8 @@ namespace PayNet
                 pay_params.Add("notify_url", ConfigUtils.notifyurl); //服务端返回地址(POST返回数据)
                 pay_params.Add("return_url", ConfigUtils.returnurl); //页面跳转返回地址(POST返回数据)
                 pay_params.Add("name", "充值");
-                pay_params.Add("money", doubleMoney.ToString("F2")); //支付金额                
+                pay_params.Add("money", doubleMoney.ToString("F2")); //支付金额 
+                pay_params.Add("sitename", ConfigUtils.sitename);
 
                 String sign = CommonUntils.getSign(pay_params);
                 pay_params.Add("sign", sign);
@@ -155,6 +156,12 @@ namespace PayNet
                 if (requestParam.pid.ToUpper() != ConfigUtils.pid.ToUpper())
                 {
                     result.message = "商户号不匹配.";
+                    return result;
+                }
+                if (requestParam.trade_status.ToUpper() != "TRADE_SUCCESS")
+                {
+                    result.status = "failed";
+                    result.message = "支付失败.";
                     return result;
                 }
 

@@ -6,12 +6,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\workspace\wonderfulsky\Publish</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\workspace\shenlanyun\Publish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
-    <File Include="bin/BouncyCastle.Crypto.dll">
-      <publishTime>01/25/2016 07:17:06</publishTime>
-    </File>
     <File Include="bin/Common.Logging.Core.dll">
       <publishTime>08/16/2017 06:51:46</publishTime>
     </File>
@@ -23,9 +20,6 @@
     </File>
     <File Include="bin/Common.Logging.pdb">
       <publishTime>08/16/2017 06:51:42</publishTime>
-    </File>
-    <File Include="bin/CSharp-easy-RSA-PEM.dll">
-      <publishTime>07/05/2018 16:31:21</publishTime>
     </File>
     <File Include="bin/Google.Protobuf.dll">
       <publishTime>12/13/2019 11:25:38</publishTime>
@@ -49,13 +43,10 @@
       <publishTime>11/09/2019 00:56:44</publishTime>
     </File>
     <File Include="bin/PayNet.dll">
-      <publishTime>03/01/2020 18:05:45</publishTime>
+      <publishTime>03/06/2020 18:46:05</publishTime>
     </File>
     <File Include="bin/PayNet.pdb">
-      <publishTime>03/01/2020 18:05:45</publishTime>
-    </File>
-    <File Include="bin/PublicKey.pem">
-      <publishTime>02/26/2020 23:46:14</publishTime>
+      <publishTime>03/06/2020 18:46:05</publishTime>
     </File>
     <File Include="bin/Quartz.dll">
       <publishTime>05/27/2018 11:18:32</publishTime>
@@ -68,12 +59,6 @@
     </File>
     <File Include="bin/RestSharp.dll">
       <publishTime>07/03/2019 21:33:36</publishTime>
-    </File>
-    <File Include="bin/SkyPrivateKey.pem">
-      <publishTime>02/29/2020 21:15:33</publishTime>
-    </File>
-    <File Include="bin/SkyPublicKey.pem">
-      <publishTime>02/26/2020 22:36:21</publishTime>
     </File>
     <File Include="bin/System.AppContext.dll">
       <publishTime>01/17/2020 18:21:34</publishTime>
@@ -412,22 +397,25 @@
       <publishTime>05/26/2019 19:56:26</publishTime>
     </File>
     <File Include="js/layer.js">
-      <publishTime>08/26/2016 17:35:36</publishTime>
+      <publishTime>03/01/2020 16:39:05</publishTime>
+    </File>
+    <File Include="js/md5.js">
+      <publishTime>07/30/2019 13:54:10</publishTime>
     </File>
     <File Include="js/need/layer.css">
-      <publishTime>08/26/2016 17:35:36</publishTime>
+      <publishTime>03/01/2020 16:39:03</publishTime>
     </File>
     <File Include="js/qrcode.js">
       <publishTime>07/04/2017 15:10:46</publishTime>
     </File>
     <File Include="js/scale_fn.js">
-      <publishTime>05/26/2019 16:24:11</publishTime>
+      <publishTime>03/01/2020 16:39:01</publishTime>
     </File>
     <File Include="js/sdk.js">
       <publishTime>12/21/2019 14:03:19</publishTime>
     </File>
     <File Include="js/zepto.min.js">
-      <publishTime>05/26/2019 16:24:14</publishTime>
+      <publishTime>03/01/2020 16:39:00</publishTime>
     </File>
     <File Include="layui/css/layui.css">
       <publishTime>06/06/2019 12:19:13</publishTime>
@@ -759,9 +747,6 @@
     <File Include="layui/layui.js">
       <publishTime>06/06/2019 12:19:13</publishTime>
     </File>
-    <File Include="lib/CSharp-easy-RSA-PEM.dll">
-      <publishTime>07/05/2018 16:31:21</publishTime>
-    </File>
     <File Include="message.html">
       <publishTime>12/29/2019 15:09:14</publishTime>
     </File>
@@ -777,20 +762,8 @@
     <File Include="PayResult.aspx">
       <publishTime>11/27/2019 14:52:59</publishTime>
     </File>
-    <File Include="PublicKey.pem">
-      <publishTime>02/26/2020 23:46:14</publishTime>
-    </File>
     <File Include="Setting.config">
-      <publishTime>03/01/2020 16:55:39</publishTime>
-    </File>
-    <File Include="SkyPrivateKey.pem">
-      <publishTime>03/01/2020 01:22:08</publishTime>
-    </File>
-    <File Include="SkyPrivateKeyPkcs8.pem">
-      <publishTime>02/26/2020 22:35:53</publishTime>
-    </File>
-    <File Include="SkyPublicKey.pem">
-      <publishTime>02/26/2020 22:36:21</publishTime>
+      <publishTime>03/06/2020 18:32:17</publishTime>
     </File>
     <File Include="Styles/TextStyle.css">
       <publishTime>06/22/2019 14:08:41</publishTime>
@@ -799,7 +772,7 @@
       <publishTime>11/27/2019 14:52:59</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/01/2020 18:05:46</publishTime>
+      <publishTime>03/06/2020 18:32:33</publishTime>
     </File>
   </ItemGroup>
 </Project>
