@@ -49,10 +49,6 @@
     <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
     </Reference>
-    <Reference Include="CSharp-easy-RSA-PEM, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>lib\CSharp-easy-RSA-PEM.dll</HintPath>
-    </Reference>
     <Reference Include="Google.Protobuf, Version=3.11.2.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.11.2\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
@@ -239,7 +235,6 @@
     <Content Include="layui\lay\modules\tree.js" />
     <Content Include="layui\lay\modules\upload.js" />
     <Content Include="layui\lay\modules\util.js" />
-    <Content Include="lib\CSharp-easy-RSA-PEM.dll" />
     <Content Include="message.html" />
     <Content Include="OnlinePay.aspx" />
     <Content Include="PayNet.aspx" />
@@ -339,10 +334,6 @@
     <None Include="packages.config" />
     <Content Include="Setting.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <Content Include="SkyPrivateKey.pem" />
-    <Content Include="SkyPublicKey.pem" />
-    <Content Include="PublicKey.pem" />
-    <Content Include="SkyPrivateKeyPkcs8.pem" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

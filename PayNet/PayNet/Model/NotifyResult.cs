@@ -13,31 +13,39 @@ namespace PayNet
         /// <summary>
         /// 商户编号
         /// </summary>
-        public String mid { get; set; }
+        public String pid { get; set; }
         /// <summary>
-        /// 订单号
+        /// 易支付订单号
         /// </summary>
-        public String merchantid { get; set; }
+        public String trade_no { get; set; }
+        /// <summary>
+        /// 商户订单号
+        /// </summary>
+        public String out_trade_no { get; set; }
+        /// <summary>
+        /// 支付方式
+        /// </summary>
+        public String type { get; set; }
+        /// <summary>
+        /// 商品名称
+        /// </summary>
+        public String name { get; set; }
         /// <summary>
         /// 订单金额
         /// </summary>
-        public String amount { get; set; }
+        public String money { get; set; }
         /// <summary>
-        /// 系统订单号
+        /// 支付状态
         /// </summary>
-        public String systemid { get; set; }
-        /// <summary>
-        /// 交易时间
-        /// </summary>
-        public String time { get; set; }
-        /// <summary>
-        /// 交易状态
-        /// </summary>
-        public String status { get; set; }
+        public String trade_status { get; set; }
         /// <summary>
         /// 签名
         /// </summary>
         public String sign { get; set; }
+        /// <summary>
+        /// 签名类型
+        /// </summary>
+        public String sign_type { get; set; }
         /// <summary>
         /// 扩展返回
         /// </summary>

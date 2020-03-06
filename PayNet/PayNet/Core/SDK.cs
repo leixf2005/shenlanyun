@@ -93,17 +93,17 @@ namespace PayNet
 
                 //Post参数
                 SortedDictionary<string, string> pay_params = new SortedDictionary<string, string>();
-                pay_params.Add("service", ConfigUtils.service);
-                pay_params.Add("mid", ConfigUtils.mid); //平台分配商户号
-                pay_params.Add("merchantid", recharge.id); //订单号
-                pay_params.Add("amount", doubleMoney.ToString("F2")); //支付金额
-                pay_params.Add("currency", "CNY"); //交易币种
-                pay_params.Add("channel", recharge.payType); //银行编码
-                pay_params.Add("notifyurl", ConfigUtils.notifyurl); //服务端返回地址.（POST返回数据）
-                pay_params.Add("returnurl", ConfigUtils.returnurl); //页面跳转返回地址（POST返回数据）
+                pay_params.Add("pid", ConfigUtils.pid);
+                pay_params.Add("type", recharge.payType); //平台分配商户号
+                pay_params.Add("out_trade_no", recharge.id); //订单号
+                pay_params.Add("notify_url", ConfigUtils.notifyurl); //服务端返回地址(POST返回数据)
+                pay_params.Add("return_url", ConfigUtils.returnurl); //页面跳转返回地址(POST返回数据)
+                pay_params.Add("name", "充值");
+                pay_params.Add("money", doubleMoney.ToString("F2")); //支付金额                
 
                 String sign = CommonUntils.getSign(pay_params);
                 pay_params.Add("sign", sign);
+                pay_params.Add("sign_type", "MD5");
                 pay_params.Add("remark", Base64.Encode(recharge.ToJsonString()));
 
                 String postMessage = pay_params.ToJsonString();
@@ -142,30 +142,24 @@ namespace PayNet
                 }
                 result.data = requestParam.ToJsonString();
 
-                if (String.IsNullOrEmpty(requestParam.mid)
-                    || String.IsNullOrEmpty(requestParam.merchantid)
-                    || String.IsNullOrEmpty(requestParam.amount)
-                    || String.IsNullOrEmpty(requestParam.systemid)
-                    || String.IsNullOrEmpty(requestParam.status)
+                if (String.IsNullOrEmpty(requestParam.pid)
+                    || String.IsNullOrEmpty(requestParam.trade_no)
+                    || String.IsNullOrEmpty(requestParam.out_trade_no)
+                    || String.IsNullOrEmpty(requestParam.money)
                     || String.IsNullOrEmpty(requestParam.sign))
                 {
                     result.message = "数据解析异常.";
                     return result;
                 }
 
-                if (requestParam.mid.ToUpper() != ConfigUtils.mid.ToUpper())
+                if (requestParam.pid.ToUpper() != ConfigUtils.pid.ToUpper())
                 {
                     result.message = "商户号不匹配.";
                     return result;
                 }
-                if (String.IsNullOrEmpty(requestParam.status) || requestParam.status.Trim() != "1")
-                {
-                    result.message = "充值失败.";
-                    return result;
-                }
 
                 double doubleMoney = 0;
-                if (!double.TryParse(requestParam.amount, out doubleMoney))
+                if (!double.TryParse(requestParam.money, out doubleMoney))
                 {
                     result.status = "failed";
                     result.message = "支付金额出现异常，请稍候再试.";
@@ -180,12 +174,13 @@ namespace PayNet
                 requestParam.resultMoney = doubleMoney;
 
                 SortedDictionary<string, string> dicMap = new SortedDictionary<string, string>();
-                dicMap.Add("mid", requestParam.mid);
-                dicMap.Add("merchantid", requestParam.merchantid);
-                dicMap.Add("systemid", requestParam.systemid);
-                dicMap.Add("amount", requestParam.amount);
-                dicMap.Add("status", requestParam.status);
-                dicMap.Add("time", requestParam.time);
+                dicMap.Add("pid", requestParam.pid);
+                dicMap.Add("trade_no", requestParam.trade_no);
+                dicMap.Add("out_trade_no", requestParam.out_trade_no);
+                dicMap.Add("type", requestParam.type);
+                dicMap.Add("name", requestParam.name);
+                dicMap.Add("money", requestParam.money);
+                dicMap.Add("trade_status", requestParam.trade_status);
 
                 Boolean flag = CommonUntils.verifySign(dicMap, requestParam.sign);
                 if (!flag)

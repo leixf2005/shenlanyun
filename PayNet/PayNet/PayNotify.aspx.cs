@@ -19,7 +19,7 @@ namespace PayNet
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            String writeString = "SUCCESS";
+            String writeString = "OK";
             if (IsPostBack)
             {
                 Response.Write(writeString);
@@ -45,7 +45,7 @@ namespace PayNet
             log.type = 2;
             log.url = "PayNotify.aspx";
             log.datas = resHandler.pairs.ToJsonString();
-            log.orderid = requestParam.merchantid;
+            log.orderid = requestParam.out_trade_no;
             ApiLogUntils.AddLog(log);
 
             if (sdkResult.status != "1")
@@ -56,12 +56,12 @@ namespace PayNet
             }
 
             Recharge recharge = new Recharge();
-            recharge.id = requestParam.merchantid;
-            recharge.pay_orderid = requestParam.systemid;
+            recharge.id = requestParam.out_trade_no;
+            recharge.pay_orderid = requestParam.trade_no;
             recharge.pay_money = requestParam.resultMoney;
             if (recharge != null && !String.IsNullOrEmpty(recharge.id))
             {
-                recharge.payStatus = requestParam.status == "1" ? 1 : 2;
+                recharge.payStatus = 1;
                 RechargeUtils.UpdateRechargeState(recharge);
             }
             Response.Write(writeString);

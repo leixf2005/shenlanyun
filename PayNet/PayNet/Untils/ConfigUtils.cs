@@ -12,16 +12,6 @@ namespace PayNet
     /// </summary>
     public static class ConfigUtils
     {
-        /// <summary>
-        /// 私钥
-        /// </summary>
-        public static String PrivateKey { get; set; }
-
-        /// <summary>
-        /// 公钥
-        /// </summary>
-        public static String PublicKey { get; set; }
-
         #region Attributes
 
         /// <summary>
@@ -59,12 +49,12 @@ namespace PayNet
         /// <summary>
         /// 商户在网关系统上的商户号
         /// </summary>
-        public static String mid { get; private set; }
+        public static String pid { get; private set; }
 
         /// <summary>
         /// 商户安全码
         /// </summary>
-        public static String securityCode { get; private set; }
+        public static String key { get; private set; }
 
         /// <summary>
         /// 通知商户Url(在网关返回信息时通知商户的地址，该地址不能带任何参数，否则异步通知会不成功)
@@ -86,11 +76,6 @@ namespace PayNet
         /// </summary>
         public static String queryurl { get; private set; }
 
-        /// <summary>
-        /// 请求类型 固定值为“Payment” .
-        /// </summary>
-        public static String service { get; private set; } = "Payment";
-
         #endregion
 
         /// <summary>
@@ -98,18 +83,6 @@ namespace PayNet
         /// </summary>
         public static void InitConfig()
         {
-            String privateKeyFile = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SkyPrivateKey.pem");
-            if (System.IO.File.Exists(privateKeyFile))
-            {
-                PrivateKey = System.IO.File.ReadAllText(privateKeyFile);
-            }
-
-            String publicKeyFile = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PublicKey.pem");
-            if (System.IO.File.Exists(publicKeyFile))
-            {
-                PublicKey = System.IO.File.ReadAllText(publicKeyFile);
-            }
-
             if (ConfigurationManager.AppSettings.AllKeys.Contains("Debug"))
             {
                 IsDebug = ConfigurationManager.AppSettings["Debug"] == "1";
@@ -228,14 +201,14 @@ namespace PayNet
 
                 foreach (XmlNode xmlNode in xmlNodeList)
                 {
-                    String key = xmlNode.Attributes["key"].Value.ToLower();
-                    switch (key)
+                    String attributeKey = xmlNode.Attributes["key"].Value.ToLower();
+                    switch (attributeKey)
                     {
-                        case "mid":
-                            mid = xmlNode.Attributes["value"].Value;
+                        case "pid":
+                            pid = xmlNode.Attributes["value"].Value;
                             break;
-                        case "securitycode":
-                            securityCode = xmlNode.Attributes["value"].Value;
+                        case "key":
+                            key = xmlNode.Attributes["value"].Value;
                             break;
                         case "payurl":
                             payurl = xmlNode.Attributes["value"].Value;

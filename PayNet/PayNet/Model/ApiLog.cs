@@ -22,9 +22,9 @@ namespace PayNet
         public String orderid { get; set; }
 
         /// <summary>
-        /// API类型(1-米拉宝,2-YiJia，3-9A, 20-天空支付 )
+        /// API类型(1-米拉宝,2-YiJia，3-9A, 21-shenlanyun )
         /// </summary>
-        public int apitype { get; set; } = 20;
+        public int apitype { get; set; } = 21;
 
         /// <summary>
         /// 数据类型(1-发送请求,2-返回结果)

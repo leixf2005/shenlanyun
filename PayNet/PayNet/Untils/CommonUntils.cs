@@ -187,24 +187,6 @@ namespace PayNet
             return false;
         }
 
-        ///// <summary>
-        ///// 字典转大写Key
-        ///// </summary>
-        ///// <param name="pairs"></param>
-        ///// <returns></returns>
-        //public static Dictionary<string, string> ToUpper(Dictionary<string, string> pairs)
-        //{
-        //    Dictionary<string, string> newPairs = new Dictionary<string, string>();
-        //    if (pairs != null && pairs.Count > 0)
-        //    {
-        //        foreach (var item in pairs)
-        //        {
-        //            newPairs.Add(item.Key.ToUpper(), item.Value);
-        //        }
-        //    }
-        //    return newPairs;
-        //}
-
         #region 签名(提交到支付AP的签名)
 
         /// <summary>
@@ -213,11 +195,9 @@ namespace PayNet
         /// <returns></returns>
         internal static string getSign(SortedDictionary<string, string> pairs)
         {
-            RSAUtils rsaUtils = new RSAUtils();
             List<String> list = pairs.Select(A => String.Format("{0}={1}", A.Key, A.Value)).ToList();
             String result = String.Join("&", list);
-            result += "&" + ConfigUtils.securityCode;
-            result = rsaUtils.GetSign(result);
+            result = MD5Untils.GetMd5(result);
             return result;
         }
 
@@ -231,11 +211,10 @@ namespace PayNet
         /// <returns></returns>
         internal static Boolean verifySign(SortedDictionary<string, string> pairs, String sign)
         {
-            RSAUtils rsaUtils = new RSAUtils();
             List<String> list = pairs.Select(A => String.Format("{0}={1}", A.Key, A.Value)).ToList();
             String result = String.Join("&", list);
-            result += "&" + ConfigUtils.securityCode;
-            Boolean flag = rsaUtils.VerifySign(result, sign);
+            result = MD5Untils.GetMd5(result);
+            Boolean flag = result.ToUpper() == sign.ToUpper();
             return flag;
         }
 

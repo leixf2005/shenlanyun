@@ -14,48 +14,31 @@ namespace PayNet
         /// <summary>
         /// 请求结果“1”:成功 “0”:失败
         /// </summary>
-        public String result { get; set; }
+        public String code { get; set; }
         /// <summary>
         /// 商户编号
         /// </summary>
-        public String mid { get; set; }
+        public String pid { get; set; }
         /// <summary>
-        /// 订单号
+        /// 商户订单号
         /// </summary>
-        public String merchantid { get; set; }
+        public String out_trade_no { get; set; }
+        /// <summary>
+        /// 易支付订单号
+        /// </summary>
+        public String trade_no { get; set; }
         /// <summary>
         /// 支付通道
         /// </summary>
-        public String channel { get; set; }
+        public String type { get; set; }
         /// <summary>
-        /// 订单状态 
-        /// “0000” : 处理中
-        /// “1000” : 支付完成
-        /// “2000” : 失败
-        /// “3000” : 异常
+        /// 支付状态
         /// </summary>
-        public String code { get; set; }
+        public String status { get; set; }
         /// <summary>
         /// 金额
         /// </summary>
-        public String amount { get; set; }
-        /// <summary>
-        /// 订单状态
-        /// <para>“ Processing ” : 处理中
-        /// “Success” : 支付完成
-        /// “ Failed ” : 失败
-        /// “ Abnormal” : 异常
-        /// </para>
-        /// </summary>
-        public String message { get; set; }
-        /// <summary>
-        /// 订单支付时间
-        /// </summary>
-        public String time { get; set; }
-        /// <summary>
-        /// 签名
-        /// </summary>
-        public String sign { get; set; }
+        public String money { get; set; }
 
     }
 }

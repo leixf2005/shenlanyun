@@ -47,25 +47,25 @@ namespace PayNet
             log.type = 2;
             log.url = "PayResult.aspx";
             log.datas = resHandler.pairs.ToJsonString();
-            log.orderid = requestParam.merchantid;
+            log.orderid = requestParam.out_trade_no;
             ApiLogUntils.AddLog(log);
 
             if (sdkResult.status != "1")
             {
-                Response.Redirect(String.Format("message.html?m={0}", Uri.EscapeDataString("支付失败. 订单号:" + requestParam.merchantid)));
+                Response.Redirect(String.Format("message.html?m={0}", Uri.EscapeDataString("支付失败. 订单号:" + requestParam.out_trade_no)));
                 return;
             }
 
             Recharge recharge = new Recharge();
-            recharge.id = requestParam.merchantid;
-            recharge.pay_orderid = requestParam.systemid;
+            recharge.id = requestParam.out_trade_no;
+            recharge.pay_orderid = requestParam.trade_no;
             recharge.pay_money = requestParam.resultMoney;
             if (recharge != null && !String.IsNullOrEmpty(recharge.id))
             {
-                recharge.payStatus = requestParam.status == "1" ? 1 : 2;
+                recharge.payStatus = 1;
                 RechargeUtils.UpdateRechargeState(recharge);
             }
-            Response.Redirect(String.Format("message.html?m={0}", Uri.EscapeDataString("支付成功. 订单号:" + requestParam.merchantid)));
+            Response.Redirect(String.Format("message.html?m={0}", Uri.EscapeDataString("支付成功. 订单号:" + requestParam.out_trade_no)));
         }
 
     }
