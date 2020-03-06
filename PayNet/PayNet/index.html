@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>测试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+
+    <script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="js/layer.js"></script>
+    <script type="text/javascript" src="js/sdk.js"></script>
+
+    <link href="Styles/TextStyle.css" rel="stylesheet" />
+    <style>
+        body {
+            text-align: center;
+            background: #E8ECF0;
+            font-size: 14px;
+        }
+
+        .div {
+            margin: 0 auto;
+            width: 300px;
+            background-color: white;
+        }
+
+        .tr {
+            height: 35px;
+        }
+    </style>
+    <script type="text/javascript">
+        function formVaild() {
+            var tmpValue = document.getElementById("group").value;
+            if (tmpValue == null || tmpValue == "") {
+                alertEx("客户区组不能为空.");
+                return false;
+            }
+
+            tmpValue = document.getElementById("accounts").value;
+            if (tmpValue == null || tmpValue == "") {
+                alertEx("游戏账号不能为空.");
+                return false;
+            }
+
+            return true;
+        }
+
+        function submitClick() {
+            var result = formVaild();
+            if (!result) {
+                return;
+            }
+            loading();
+            element = document.getElementById("form1");
+            if (element != null) {
+                element.submit();
+            }
+        }
+
+/**/</script>
+</head>
+
+<body>
+    <form id="form1" action="OnlinePay.aspx" method="get" onsubmit="return formVaild();">
+        <div class="div">
+            <div style="text-align: left; height: 35px; vertical-align: central; margin-top: 50px; background: #F5F5F5; border: 1px solid #B6B4B6; padding-left: 10px;">
+                <span style="vertical-align: central; line-height: 35px;">测试页面</span>
+            </div>
+
+            <div style="border-left: 1px solid #B6B4B6; border-right: 1px solid #B6B4B6;
+                border-bottom: 1px solid #B6B4B6; padding-left: 10px; padding-right: 10px; padding-top:10px; height:135px;">
+                <table>
+                    <tr class="tr">
+                        <td>客户区组：</td>
+                        <td>
+                            <input type="text" id="group" name="group" maxlength="30" />
+                        </td>
+                    </tr>
+                    <tr class="tr">
+                        <td>游戏账号：</td>
+                        <td>
+                            <input type="text" id="accounts" name="accounts" maxlength="30" />
+                        </td>
+                    </tr>
+                    <tr class="tr">
+                        <td></td>
+                        <td style="text-align:left;">
+                            <button type="button" style="width: 75px; height: 25px;" onclick="submitClick();">提交</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
